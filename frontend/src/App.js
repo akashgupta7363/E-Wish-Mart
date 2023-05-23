@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Login } from "./Routes";
+import { LoginPage } from "./Routes";
 
 export default function App() {
   return (
@@ -9,7 +9,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           {/* <Route path='/' exact element={}/> */}
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
       </BrowserRouter>
     </>

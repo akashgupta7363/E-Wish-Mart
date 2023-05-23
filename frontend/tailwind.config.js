@@ -8,6 +8,7 @@ module.exports = {
     },
     extend: {
       screens: {
+        ssm: "389px",
         "1000px": "1050px",
         "1100px": "1110px",
         "800px": "800px",
