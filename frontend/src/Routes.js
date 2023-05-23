@@ -1,3 +1,4 @@
 import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage.js";
 
-export { LoginPage };
+export { LoginPage, SignupPage };
