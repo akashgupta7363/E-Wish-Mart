@@ -3,6 +3,8 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import styles from "../../styles/style";
 import { Link } from "react-router-dom";
 import { RxAvatar } from "react-icons/rx";
+import axios from "axios";
+import { server } from "../../server";
 
 function Signup() {
   const [email, setEmail] = useState("");
@@ -10,12 +12,28 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
   const [avatar, setAvatar] = useState(null);
-  const handleSubmit = () => {};
+
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
     setAvatar(file);
   };
-
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    };
+    const newForm = new FormData();
+    newForm.append("name", name);
+    newForm.append("file", avatar);
+    newForm.append("email", email);
+    newForm.append("password", password);
+    await axios
+      .post(`${server}/user/create-user`, newForm, config)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center  py-12 ssm:px-6 lg:px-8">
       <div className="ssm:mx-auto ssm:w-full ssm:max-w-md">
@@ -25,7 +43,7 @@ function Signup() {
       </div>
       <div className="mt-8 ssm:mx-auto ssm:max-w-md ssm:w-full">
         <div className="bg-white py-8 px-4 shadow ssm:rounded-lg ssm:px-10">
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label
                 htmlFor="name"
@@ -39,7 +57,7 @@ function Signup() {
                   name="text"
                   required
                   value={name}
-                  autocomplete="name"
+                  autoComplete="name"
                   onChange={(e) => setName(e.target.value)}
                   className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm  placeholder:gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500  ssm:text-sm"
                 />
@@ -58,7 +76,7 @@ function Signup() {
                   name="email"
                   required
                   value={email}
-                  autocomplete="email"
+                  autoComplete="email"
                   onChange={(e) => setEmail(e.target.value)}
                   className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm  placeholder:gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500  ssm:text-sm"
                 />
@@ -77,7 +95,7 @@ function Signup() {
                   name="password"
                   required
                   value={password}
-                  autocomplete="current-password"
+                  autoComplete="current-password"
                   onChange={(e) => setPassword(e.target.value)}
                   className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm  placeholder:gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500  ssm:text-sm"
                 />
