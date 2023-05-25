@@ -102,4 +102,28 @@ router.post(
   })
 );
 
+router.post(
+  "/login-user",
+  catchAsyncError(async (req, res, next) => {
+    try {
+      const { email, password } = req.body;
+
+      const user = await User.findOne({ email }).select("password");
+      if (!user) {
+        return next(new ErrorHandler("User doesn't exists", 400));
+      }
+      const isPasswordValid = await user.comparePassword(password);
+      if (!isPasswordValid) {
+        return next(
+          new ErrorHandler("Please provide the correct information", 400)
+        );
+      }
+      sendToken(user, 201, res);
+    } catch (error) {
+      console.log(error);
+      return next(new ErrorHandler(error.message, 400));
+    }
+  })
+);
+
 module.exports = router;
