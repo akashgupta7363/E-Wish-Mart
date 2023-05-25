@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { RxAvatar } from "react-icons/rx";
 import axios from "axios";
 import { server } from "../../server";
+import { toast } from "react-toastify";
 
 function Signup() {
   const [email, setEmail] = useState("");
@@ -35,7 +36,9 @@ function Signup() {
       .then((res) => {
         alert(res.message);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        toast.error(err.response.data.message);
+      });
   };
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center  py-12 ssm:px-6 lg:px-8">
