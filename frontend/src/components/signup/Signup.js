@@ -34,7 +34,11 @@ function Signup() {
     await axios
       .post(`${server}/user/create-user`, newForm, config)
       .then((res) => {
-        alert(res.message);
+        toast.success(res.data.message);
+        setEmail("");
+        setName("");
+        setPassword("");
+        setAvatar("");
       })
       .catch((err) => {
         toast.error(err.response.data.message);
