@@ -4,7 +4,7 @@ import Header from "../components/header/Header.js";
 const HomePage = () => {
   return (
     <div>
-      <Header />
+      <Header activeHeading={1} />
     </div>
   );
 };

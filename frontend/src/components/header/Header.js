@@ -5,11 +5,13 @@ import logo from "../../assets/logo1.png";
 import { categoriesData, productData } from "../../static/data";
 import { AiOutlineSearch } from "react-icons/ai";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
+import Navbar from "./Navbar.js";
 import DropDown from "./DropDown.js";
 import { BiMenuAltLeft } from "react-icons/bi";
 
-const Header = () => {
+const Header = (activeHeading) => {
   const [active, setActive] = useState(false);
+
   const [searchTerm, setSearchTerm] = useState("");
   const [searchData, setSearchData] = useState(null);
   const [dropDown, setDropDown] = useState(false);
@@ -114,6 +116,10 @@ const Header = () => {
                 />
               )}
             </div>
+          </div>
+          {/* navItems */}
+          <div className={`${styles.normalFlex} `}>
+            <Navbar active={activeHeading} />
           </div>
         </div>
       </div>
