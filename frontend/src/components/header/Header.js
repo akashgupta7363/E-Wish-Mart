@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/logo1.png";
 import { productData } from "../../static/data";
 import { AiOutlineSearch } from "react-icons/ai";
+import { IoIosArrowForward } from "react-icons/io";
 
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -21,7 +22,7 @@ const Header = () => {
   };
   return (
     <div className={`${styles.section}`}>
-      <div className="hidden 800px:h-[50px] 800px:flex items-center justify-between">
+      <div className="hidden 800px:h-[50px] 800px:my-[20px]  800px:flex items-center justify-between">
         <div>
           <Link to="/">
             <img className="800px:w-[150px] mt-4" src={logo} alt="logo" />
@@ -47,7 +48,7 @@ const Header = () => {
                   const Product_name = d.replace(/\s+/g, "-");
                   return (
                     <Link to={`/product/${Product_name}`}>
-                      <div className="w-full flex items-start py-3">
+                      <div className="w-full flex items-start-py-3">
                         <img
                           src={data.image_Url[0].url}
                           className="w-[40px] h-[40px] mr-[10px] "
@@ -59,6 +60,14 @@ const Header = () => {
                 })}
             </div>
           ) : null}
+        </div>
+        <div className={`${styles.button}`}>
+          <Link to="\seller">
+            <h1 className="text-[#fff] flex items-center">
+              {" "}
+              Become Seller <IoIosArrowForward className="ml-1" />
+            </h1>
+          </Link>
         </div>
       </div>
     </div>
