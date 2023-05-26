@@ -29,14 +29,14 @@ const Header = ({ activeHeading }) => {
         product.name.toLowerCase().includes(term.toLowerCase())
       );
     setSearchData(filteredProducts);
-    window.addEventListener("scroll", () => {
-      if (window.screenY > 70) {
-        setActive(true);
-      } else {
-        setActive(false);
-      }
-    });
   };
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 70) {
+      setActive(true);
+    } else {
+      setActive(false);
+    }
+  });
   return (
     <>
       <div className={`${styles.section}`}>
