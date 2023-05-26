@@ -43,7 +43,7 @@ const Header = ({ activeHeading }) => {
         <div className="hidden 800px:h-[50px] 800px:my-[20px]  800px:flex items-center justify-between">
           <div>
             <Link to="/">
-              <img className="800px:w-[150px] mt-4" src={logo} alt="logo" />
+              <img className="800px:w-[180px]" src={logo} alt="logo" />
             </Link>
           </div>
           <div className="w-[50%] relative">
