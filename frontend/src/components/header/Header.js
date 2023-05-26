@@ -14,9 +14,9 @@ const Header = () => {
     setSearchTerm(term);
     const filteredProducts =
       productData &&
-      productData.filter((product) => {
-        product.name.toLowerCase().includes(term.toLowerCase());
-      });
+      productData.filter((product) =>
+        product.name.toLowerCase().includes(term.toLowerCase())
+      );
     setSearchData(filteredProducts);
   };
   return (
@@ -45,6 +45,17 @@ const Header = () => {
                 searchData.map((data, index) => {
                   const d = data.name;
                   const Product_name = d.replace(/\s+/g, "-");
+                  return (
+                    <Link to={`/product/${Product_name}`}>
+                      <div className="w-full flex items-start py-3">
+                        <img
+                          src={data.image_Url[0].url}
+                          className="w-[40px] h-[40px] mr-[10px] "
+                        />
+                        <h1>{data.name}</h1>
+                      </div>
+                    </Link>
+                  );
                 })}
             </div>
           ) : null}
