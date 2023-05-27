@@ -6,7 +6,11 @@ import {
   AiOutlineInstagram,
   AiOutlineTwitter,
 } from "react-icons/ai";
-import { footerProductLinks } from "../../../static/data";
+import {
+  footerProductLinks,
+  footerSupportLinks,
+  footercompanyLinks,
+} from "../../../static/data";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -31,10 +35,10 @@ const Footer = () => {
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6 sm:px-8 px-5 pb-6 sm:text-center">
+      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6 sm:px-8 px-5 py-10  sm:text-center">
         <ul className="px-5 text-center sm:text-start flex sm:block flex-col items-center">
           <img
-            className="-ml-6 w-[180px]"
+            className="-ml-6 -mt-6 w-[180px]"
             src={logo}
             style={{ filter: "brightness(0) invert(1)" }}
             alt=""
@@ -76,6 +80,40 @@ const Footer = () => {
             </li>
           ))}
         </ul>
+
+        <ul className="text-center sm:text-start ">
+          <h1 className="mb-1 font-semibold ">Shop</h1>
+          {footercompanyLinks.map((link) => (
+            <li
+              key={link.name}
+              className="text-gray-400 hover:text-teal-400 duration-300 text-sm cursor-pointer leading-6"
+            >
+              <Link to={link.link}>{link.name}</Link>
+            </li>
+          ))}
+        </ul>
+        <ul className="text-center sm:text-start ">
+          <h1 className="mb-1 font-semibold ">Support</h1>
+          {footerSupportLinks.map((link) => (
+            <li
+              key={link.name}
+              className="text-gray-400 hover:text-teal-400 duration-300 text-sm cursor-pointer leading-6"
+            >
+              <Link to={link.link}>{link.name}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 text-center pt-2 text-gray-400 text-sm pb-8">
+        <span>© 2013 E-Wish-Mart. All rights reserved.</span>
+        <span>Terms Privacy Poilcy</span>
+        <div className="sm:block flex justify-center w-full">
+          {" "}
+          <img
+            src="https://hamart-shop.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ffooter-payment.a37c49ac.png&w=640&q=75"
+            alt=""
+          />
+        </div>
       </div>
     </div>
   );
