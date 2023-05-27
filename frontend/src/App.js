@@ -1,7 +1,13 @@
 import React, { useEffect } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { LoginPage, SignupPage, HomePage, ProductPage } from "./Routes";
+import {
+  LoginPage,
+  SignupPage,
+  HomePage,
+  ProductPage,
+  BestSellingPage,
+} from "./Routes";
 import ActivationPage from "./pages/ActivationPage.js";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -33,6 +39,7 @@ export default function App() {
             element={<ActivationPage />}
           />
           <Route path="/products" element={<ProductPage />} />
+          <Route path="/best-selling" element={<BestSellingPage />} />
           {/* <Route path="/forget-password" element={<LoginPage />} /> */}
         </Routes>
 
