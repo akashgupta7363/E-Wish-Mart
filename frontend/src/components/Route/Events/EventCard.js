@@ -4,7 +4,7 @@ import CountDown from "./CountDown.js";
 
 const EventCard = () => {
   return (
-    <div className={`w-full block bg-white rounded-lg lg:flex p-2`}>
+    <div className={`w-full block bg-white rounded-lg lg:flex p-2 mb-12`}>
       <div className="w-full lg:-w[50%] m-auto ">
         <img
           src="https://www.startech.com.bd/image/cache/catalog/headphone/havit/h763d/h763d-02-500x500.jpg"
