@@ -16,8 +16,17 @@ import "react-toastify/dist/ReactToastify.css";
 import Store from "./redux/store";
 
 import { loadUser } from "./redux/actions/user";
+import { useSelector } from "react-redux";
+import Lottie from "react-lottie";
+import loaderanim from "./assets/loadi.json";
 
 export default function App() {
+  const { loading } = useSelector((state) => state.user);
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: loaderanim,
+  };
   useEffect(() => {
     Store.dispatch(loadUser());
     // axios
@@ -31,35 +40,41 @@ export default function App() {
   }, []);
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" exact element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/sign-up" element={<SignupPage />} />
-          <Route
-            path="/activation/:activation_token"
-            element={<ActivationPage />}
-          />
-          <Route path="/products" element={<ProductPage />} />
-          <Route path="/best-selling" element={<BestSellingPage />} />
-          <Route path="/events" element={<EventsPage />} />
-          <Route path="/faq" element={<FAQPage />} />
-          {/* <Route path="/forget-password" element={<LoginPage />} /> */}
-        </Routes>
+      {loading ? (
+        <div className="w-full h-[90vh] flex justify-center">
+          <Lottie options={defaultOptions} />
+        </div>
+      ) : (
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" exact element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/sign-up" element={<SignupPage />} />
+            <Route
+              path="/activation/:activation_token"
+              element={<ActivationPage />}
+            />
+            <Route path="/products" element={<ProductPage />} />
+            <Route path="/best-selling" element={<BestSellingPage />} />
+            <Route path="/events" element={<EventsPage />} />
+            <Route path="/faq" element={<FAQPage />} />
+            {/* <Route path="/forget-password" element={<LoginPage />} /> */}
+          </Routes>
 
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-        />
-      </BrowserRouter>
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
+        </BrowserRouter>
+      )}
     </>
   );
 }
