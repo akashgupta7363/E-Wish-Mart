@@ -10,11 +10,14 @@ import {
 } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
+import { useSelector } from "react-redux";
 import Navbar from "./Navbar.js";
 import DropDown from "./DropDown.js";
 import { BiMenuAltLeft } from "react-icons/bi";
+import { backend_url } from "../../server";
 
 const Header = ({ activeHeading }) => {
+  const { isAuthenticated, user } = useSelector((state) => state.user);
   const [active, setActive] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchData, setSearchData] = useState(null);
@@ -37,6 +40,7 @@ const Header = ({ activeHeading }) => {
       setActive(false);
     }
   });
+
   return (
     <>
       <div className={`${styles.section}`}>
@@ -145,9 +149,19 @@ const Header = ({ activeHeading }) => {
             </div>
             <div className={styles.normalFlex}>
               <div className="relative cursor-pointer mr-[15px]">
-                <Link to="/login">
-                  <CgProfile size={30} color="rgb(255 255 255/83%)" />
-                </Link>
+                {isAuthenticated ? (
+                  <Link to="/profile">
+                    <img
+                      src={`${backend_url}${user.avatar}`}
+                      alt=""
+                      className="w-[35px] h-[35px] rounded-full"
+                    />
+                  </Link>
+                ) : (
+                  <Link to="/login">
+                    <CgProfile size={30} color="rgb(255 255 255/83%)" />
+                  </Link>
+                )}
               </div>
             </div>
           </div>
