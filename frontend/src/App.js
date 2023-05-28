@@ -8,6 +8,7 @@ import {
   ProductPage,
   BestSellingPage,
   EventsPage,
+  FAQPage,
 } from "./Routes";
 import ActivationPage from "./pages/ActivationPage.js";
 import { ToastContainer } from "react-toastify";
@@ -42,6 +43,7 @@ export default function App() {
           <Route path="/products" element={<ProductPage />} />
           <Route path="/best-selling" element={<BestSellingPage />} />
           <Route path="/events" element={<EventsPage />} />
+          <Route path="/faq" element={<FAQPage />} />
           {/* <Route path="/forget-password" element={<LoginPage />} /> */}
         </Routes>
 
