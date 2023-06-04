@@ -23,6 +23,7 @@ function Login() {
         "Content-Type": "application/json",
       },
       withCredentials: true,
+      credentials: "include",
     };
     axios.defaults.withCredentials = true;
     await axios
