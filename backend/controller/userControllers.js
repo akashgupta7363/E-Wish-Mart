@@ -10,9 +10,7 @@ const catchAsyncError = require("../middleware/catchAsyncError");
 const sendMail = require("../utils/sendMail");
 const sendToken = require("../utils/jwtToken");
 const { isAuthenticated } = require("../middleware/auth");
-const cors = require("cors");
 
-router.all("*", cors());
 router.post("/create-user", upload.single("file"), async (req, res, next) => {
   try {
     const { name, email, password } = req.body;
