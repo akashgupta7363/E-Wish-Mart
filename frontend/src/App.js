@@ -41,8 +41,10 @@ export default function App() {
   return (
     <>
       {loading ? (
-        <div className="w-full h-[90vh] flex justify-center">
-          <Lottie options={defaultOptions} />
+        <div className="w-full h-[90vh] flex items-center justify-center">
+          <div className=" w-3/6 h-1/2 ">
+            <Lottie options={defaultOptions} />
+          </div>
         </div>
       ) : (
         <BrowserRouter>
