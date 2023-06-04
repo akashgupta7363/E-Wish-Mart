@@ -5,4 +5,4 @@ This is multi vendor web app made in order to nail my development skills
 
 <h3>Tech Stack: MERN and other latest technologies like tailwind CSS, socket io, redux toolkit, etc</h3>
 
-<h2>Live demo : <a href="" target="_blank">url link</a></h2>
+<h2>Live demo : <a href="https://e-wish-mart.onrender.com" target="_blank">url link</a></h2>
