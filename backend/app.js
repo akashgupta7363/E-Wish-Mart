@@ -9,8 +9,9 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://ewishmart.netlify.app/",
+    origin: "https://ewishmart.netlify.app",
     credentials: true,
+    methods: ["GET", "PUT", "DELETE", "POST"],
   })
 );
 app.use("/", express.static("uploads"));
