@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "http://ewishmart.netlify.app",
     credentials: true,
   })
 );
@@ -26,6 +26,9 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 //routes import
 const user = require("./controller/userControllers");
 
+app.get("/", (req, res) => {
+  res.json("API is running").status(200);
+});
 app.use("/api/v2/user", user);
 
 app.use(ErrorHandler);
