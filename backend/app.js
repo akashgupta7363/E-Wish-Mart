@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://e-wish-mart.onrender.com/",
+    origin: "https://e-wish-mart.onrender.com",
     credentials: true,
   })
 );
