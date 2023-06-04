@@ -11,6 +11,7 @@ app.use(
   cors({
     origin: "https://e-wish-mart.onrender.com",
     credentials: true,
+    methods: ["GET", "PUT", "DELETE", "POST"],
   })
 );
 app.use(function (req, res, next) {
