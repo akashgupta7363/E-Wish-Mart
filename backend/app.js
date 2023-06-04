@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://ewishmart.netlify.app",
+    origin: "https://ewishmart.netlify.app/",
     credentials: true,
   })
 );
