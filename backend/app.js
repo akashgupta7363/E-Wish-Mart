@@ -25,7 +25,9 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 
 //routes import
 const user = require("./controller/userControllers");
-
+app.get("/", (req, res) => {
+  res.json("API is running").status(200);
+});
 app.use("/api/v2/user", user);
 
 app.use(ErrorHandler);
