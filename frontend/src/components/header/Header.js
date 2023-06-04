@@ -26,6 +26,11 @@ const Header = ({ activeHeading }) => {
     e.preventDefault();
     const term = e.target.value;
     setSearchTerm(term);
+    if (term === "") {
+      setSearchData(null);
+      return;
+    }
+
     const filteredProducts =
       productData &&
       productData.filter((product) =>
