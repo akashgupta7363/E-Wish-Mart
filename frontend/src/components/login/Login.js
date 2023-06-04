@@ -18,13 +18,13 @@ function Login() {
       toast.warning("Please Provide all the feilds");
       return;
     }
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      withCredentials: true,
-    };
-    axios.defaults.withCredentials = true;
+    // const config = {
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+
+    // };
+    // axios.defaults.withCredentials = true;
     await axios
       .post(
         `${server}/user/login-user`,
@@ -32,7 +32,7 @@ function Login() {
           email,
           password,
         },
-        config
+        { withCredentials: true }
       )
       .then((res) => {
         toast.success("Login Success!");

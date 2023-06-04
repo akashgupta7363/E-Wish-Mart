@@ -2,7 +2,7 @@ import {} from "@reduxjs/toolkit";
 import axios from "axios";
 import { server } from "../../server";
 
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = true;
 
 export const loadUser = () => async (dispatch) => {
   try {
