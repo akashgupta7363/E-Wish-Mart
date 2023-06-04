@@ -18,7 +18,7 @@ function Login() {
       toast.warning("Please Provide all the feilds");
       return;
     }
-
+    axios.defaults.withCredentials = true;
     await axios
       .post(
         `${server}/user/login-user`,
