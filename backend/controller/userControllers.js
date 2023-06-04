@@ -39,7 +39,7 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
 
     const activationToken = createActiveToken(user);
 
-    const activationUrl = `http://localhost:3000/activation/${activationToken}`;
+    const activationUrl = `http://ewishmart.netlify.app/activation/${activationToken}`;
     try {
       await sendMail({
         email: user.email,
