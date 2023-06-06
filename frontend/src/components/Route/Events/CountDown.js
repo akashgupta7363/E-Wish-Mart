@@ -9,7 +9,7 @@ const CountDown = () => {
     return () => clearTimeout(timer);
   });
   function calculateTimeLeft() {
-    const difference = +new Date("2023-06-10") - +new Date();
+    const difference = +new Date("2023-06-15") - +new Date();
     let timeLeft = {};
     if (difference > 0) {
       timeLeft = {
