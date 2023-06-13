@@ -1,3 +1,7 @@
+
+
+
+
 # E-Wish-Mart
 
 This is multi vendor web app made in order to nail my development skills
@@ -9,7 +13,9 @@ This is multi vendor web app made in order to nail my development skills
 
 # MERN E-commerce Project
 
-Welcome to my MERN E-commerce project on GitHub! This repository showcases a full-stack e-commerce application built using the MERN stack (MongoDB, Express, React, Node.js). 
+Welcome to my MERN E-commerce project on GitHub! This repository showcases a full-stack e-commerce application built using the MERN stack (MongoDB, Express, React, Node.js).
+<br/>
+https://github.com/akashgupta7363/E-Wish-Mart/assets/63187954/2de61848-6bf6-40e7-b5de-c24f5b28c276
 
 ## Table of Contents
 
